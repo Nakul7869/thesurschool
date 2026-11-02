@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+/* Colours come from the logo: indigo ink on warm grey paper. Dark mode keeps the indigo as the accent. */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #dcdcd3;
+  --bg-soft: #e6e6de;
+  --surface: #f1f1ea;
+  --ink: #1b1c4e;
+  --muted: #53547d;
+  --brand: #3c3e94;
+  --on-brand: #f6f6ee;
+  --accent: #3c3e94;
+  --line: rgb(60 62 148 / 0.22);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0e0e16;
+  --bg-soft: #151524;
+  --surface: #1b1b30;
+  --ink: #ececE3;
+  --muted: #a6a7c9;
+  --brand: #3c3e94;
+  --on-brand: #f6f6ee;
+  --accent: #a0a2f6;
+  --line: rgb(236 236 227 / 0.16);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-soft: var(--bg-soft);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-brand: var(--brand);
+  --color-on-brand: var(--on-brand);
+  --color-accent: var(--accent);
+  --color-line: var(--line);
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* The tilted photo on an indigo block, like the reference site. */
+.tilt-frame {
+  position: relative;
+  isolation: isolate;
+}
+.tilt-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--brand);
+  transform: translate(14px, 14px) rotate(2deg);
+}
+.tilt-frame > * {
+  transform: rotate(-2deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+[data-theme="light"] .only-dark,
+[data-theme="dark"] .only-light {
+  display: none;
+}
