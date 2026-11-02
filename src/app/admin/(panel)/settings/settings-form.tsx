@@ -39,6 +39,7 @@ export function SettingsForm({ settings }: { settings: SiteSettings }) {
         <Field label="Phone number for calls" name="phone" type="tel" defaultValue={formatPhone(settings.phone)} required />
         <Field label="Email" name="email" type="email" defaultValue={settings.email} required />
         <Field label="Instagram link" name="instagramUrl" type="url" defaultValue={settings.instagramUrl} placeholder="https://instagram.com/..." />
+        <Field label="Second Instagram link" name="instagramUrl2" type="url" defaultValue={settings.instagramUrl2} placeholder="https://instagram.com/..." hint="Optional. Use this if the school has two Instagram accounts." />
         <Field label="YouTube link" name="youtubeUrl" type="url" defaultValue={settings.youtubeUrl} placeholder="https://youtube.com/..." />
         <Field label="Facebook link" name="facebookUrl" type="url" defaultValue={settings.facebookUrl} placeholder="https://facebook.com/..." />
       </Card>

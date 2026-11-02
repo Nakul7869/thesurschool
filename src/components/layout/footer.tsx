@@ -68,13 +68,13 @@ export async function Footer({ settings }: { settings: SiteSettings }) {
           <div>
             <h2 className="mb-3 text-sm font-bold uppercase tracking-widest opacity-80">Follow</h2>
             <ul className="space-y-2">
-              {socials.map(({ name, href }) => {
+              {socials.map(({ name, label, href }) => {
                 const Icon = SOCIAL_ICONS[name];
                 return (
-                  <li key={name}>
+                  <li key={href}>
                     <a href={href} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-2 ${linkClass}`}>
                       <Icon className="size-4" />
-                      {name}
+                      {label}
                     </a>
                   </li>
                 );

@@ -13,6 +13,7 @@ export type SettingsRow = {
   phone: string;
   email: string;
   instagram_url: string;
+  instagram_url_2: string;
   youtube_url: string;
   facebook_url: string;
   service_area: string;
@@ -90,6 +91,7 @@ export function toSettings(row: SettingsRow): SiteSettings {
     phone: row.phone,
     email: row.email,
     instagramUrl: row.instagram_url,
+    instagramUrl2: row.instagram_url_2 ?? "",
     youtubeUrl: row.youtube_url,
     facebookUrl: row.facebook_url,
     serviceArea: row.service_area,

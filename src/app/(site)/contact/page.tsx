@@ -31,13 +31,13 @@ export default async function ContactPage() {
         </ul>
         {socials.length > 0 ? (
           <ul className="mt-8 flex flex-wrap gap-3" aria-label="Social media">
-            {socials.map(({ name, href }) => {
+            {socials.map(({ name, label, href }) => {
               const Icon = SOCIAL_ICONS[name];
               return (
-                <li key={name}>
+                <li key={href}>
                   <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-line px-5 font-semibold text-ink hover:bg-bg-soft">
                     <Icon className="size-4" />
-                    {name}
+                    {label}
                   </a>
                 </li>
               );

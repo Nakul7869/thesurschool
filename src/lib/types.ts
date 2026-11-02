@@ -13,6 +13,7 @@ export type SiteSettings = {
   phone: string;
   email: string;
   instagramUrl: string;
+  instagramUrl2: string;
   youtubeUrl: string;
   facebookUrl: string;
   serviceArea: string;

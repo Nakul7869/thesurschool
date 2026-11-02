@@ -75,6 +75,7 @@ export const settingsSchema = z.object({
   phone: phoneNumber,
   email: z.string().trim().max(120).pipe(z.email("Enter a valid email address")),
   instagramUrl: optionalHttpsUrl,
+  instagramUrl2: optionalHttpsUrl,
   youtubeUrl: optionalHttpsUrl,
   facebookUrl: optionalHttpsUrl,
   serviceArea: optionalText(300),

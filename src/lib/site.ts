@@ -10,14 +10,28 @@ export const NAV_LINKS = [
   { href: "/contact", label: "Contact" },
 ] as const;
 
-export type Social = { name: "Instagram" | "YouTube" | "Facebook"; href: string };
+export type Social = { name: "Instagram" | "YouTube" | "Facebook"; label: string; href: string };
+
+/** "Instagram @handle" for Instagram links, so two accounts can be told apart. */
+export function socialLabel(name: Social["name"], href: string): string {
+  if (name !== "Instagram") return name;
+  try {
+    const handle = new URL(href).pathname.split("/").filter(Boolean)[0];
+    return handle ? `Instagram @${handle.replace(/^@/, "")}` : name;
+  } catch {
+    return name;
+  }
+}
 
 export function contactLinks(settings: SiteSettings) {
   const socials: Social[] = [
     { name: "Instagram" as const, href: settings.instagramUrl },
+    { name: "Instagram" as const, href: settings.instagramUrl2 },
     { name: "YouTube" as const, href: settings.youtubeUrl },
     { name: "Facebook" as const, href: settings.facebookUrl },
-  ].filter((social) => social.href !== "");
+  ]
+    .filter((social) => social.href !== "")
+    .map((social) => ({ ...social, label: socialLabel(social.name, social.href) }));
 
   return {
     whatsapp: whatsappLink(settings.whatsappNumber, bookingMessage({ school: settings.schoolName })),

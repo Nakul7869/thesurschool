@@ -29,6 +29,7 @@ export async function saveSettings(_previous: ActionState, formData: FormData): 
     phone: toInternationalDigits(values.phone),
     email: values.email,
     instagram_url: values.instagramUrl,
+    instagram_url_2: values.instagramUrl2,
     youtube_url: values.youtubeUrl,
     facebook_url: values.facebookUrl,
     service_area: values.serviceArea,

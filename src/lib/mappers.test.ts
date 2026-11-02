@@ -14,6 +14,7 @@ const settingsRow: SettingsRow = {
   phone: "919381517689",
   email: "a@b.co",
   instagram_url: "",
+  instagram_url_2: "",
   youtube_url: "",
   facebook_url: "",
   service_area: "",

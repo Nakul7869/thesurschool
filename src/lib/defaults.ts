@@ -19,6 +19,7 @@ export const DEFAULT_SETTINGS: SiteSettings = {
   phone: "919381517689",
   email: "thesurschool@gmail.com",
   instagramUrl: "",
+  instagramUrl2: "",
   youtubeUrl: "",
   facebookUrl: "",
   serviceArea: "",

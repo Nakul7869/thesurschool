@@ -22,6 +22,7 @@ const validSettings = {
   phone: "9381517689",
   email: "thesurschool@gmail.com",
   instagramUrl: "",
+  instagramUrl2: "",
   youtubeUrl: "https://youtube.com/@thesurschool",
   facebookUrl: "",
   serviceArea: "Goa",
@@ -48,6 +49,11 @@ describe("settingsSchema", () => {
   it("rejects a social link that is not https", () => {
     expect(settingsSchema.safeParse({ ...validSettings, instagramUrl: "http://instagram.com/x" }).success).toBe(false);
     expect(settingsSchema.safeParse({ ...validSettings, instagramUrl: "javascript:alert(1)" }).success).toBe(false);
+  });
+
+  it("accepts a second Instagram link and rejects an unsafe one", () => {
+    expect(settingsSchema.safeParse({ ...validSettings, instagramUrl2: "https://instagram.com/second" }).success).toBe(true);
+    expect(settingsSchema.safeParse({ ...validSettings, instagramUrl2: "http://instagram.com/second" }).success).toBe(false);
   });
 
   it("rejects a photo path that tries to leave the bucket", () => {
